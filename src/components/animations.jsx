@@ -9,6 +9,7 @@ function Animation() {
     const [questions,setQuestions] = useState([])
     const [maswali,setMaswali] = useState([])
     const [score,setScore] = useState(0)
+    const [finish,completeTest] = useState(false)
 
     // Bring data from api
     useEffect(()=>{
@@ -73,9 +74,23 @@ function Animation() {
     }
     
 
-    function submitAnswers() {
-
-        changeMode('answers')
+    function markAnswers() {
+        // check if all questions have been answwered
+        const allAnswered = maswali.every(jibu => jibu.selected != null)
+        if(!allAnswered) {
+            return ;
+        }
+        for (let i =0; i < maswali.length;i++) {
+            if(maswali[i].correct_answer = maswali[i].selected) {
+                setMaswali(prevAns => (
+                    prevAns.map(jibu => {
+                        jibu.id === maswali[i].id ? {...jibu,checked : true} : jibu
+                    })
+                ))
+                setScore(prev => prev + 1)
+            } 
+        }
+        completeTest(true)
     }
     
     return ( 
@@ -96,13 +111,14 @@ function Animation() {
                                 <Question 
                                     question={question}
                                     choosenAnswer={sendAnswer}
+                                    finished={completeTest}
                                 />
                               
                                 
                                 
                             </div>
                     })}
-                    <button onClick={submitAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                    <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
                 </div>
                 // || 
                 //  <div className='load'>Loading...</div>)
