@@ -73,6 +73,11 @@ h1 {
     box-shadow: 0 1px 1px rgb(146, 146, 142);
     
 }
+.selected {
+    background: #D6DBF5;
+    border: none;
+    /* background-color: red; */
+}
 .submit {
     margin: auto;
     display: block;

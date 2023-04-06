@@ -10,8 +10,8 @@ function Animation() {
     const [maswali,setMaswali] = useState([])
     const [answers,setAnswers] = useState({'0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':''})
 
+    // Bring data from api
     useEffect(()=>{
-        console.log('now')
         if(questionType === 'easy') {
             fetch('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple')
                 .then(response => response.json())
@@ -27,7 +27,8 @@ function Animation() {
         }      
 
     },[questionType])
-
+    
+    // Set apprpriate fields to questions
     useEffect(()=> {
         let setQuestion = []
         questions.forEach(question => {
@@ -62,14 +63,15 @@ function Animation() {
         changeMode('home')
         setQuestions([])
     }
-    function sendAnswer(answer) {
-        console.log(answer)
-        // let x = {}
-        // x.index = answer  
-        // setAnswers(prev => {
-        //     return {...prev,index:answer}
-        // })
+    function sendAnswer(answer,id) {
+        setMaswali(prevMaswali => (
+            prevMaswali.map(swali => {
+                return swali.id === id ? {...swali,selected:answer,checked:true} : swali
+            })
+        ))
+        console.log(maswali)
     }
+    
 
     function submitAnswers() {
 
@@ -93,7 +95,7 @@ function Animation() {
                         return <div key={question.id} className='question-ind' >
                                 <Question 
                                     question={question}
-
+                                    choosenAnswer={sendAnswer}
                                 />
                               
                                 
