@@ -8,7 +8,7 @@ function Animation() {
     const [questionType,modifyQuestionType] = useState()
     const [questions,setQuestions] = useState([])
     const [maswali,setMaswali] = useState([])
-    const [answers,setAnswers] = useState({'0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':''})
+    const [score,setScore] = useState(0)
 
     // Bring data from api
     useEffect(()=>{
@@ -63,13 +63,13 @@ function Animation() {
         changeMode('home')
         setQuestions([])
     }
+    // Get answers from child component
     function sendAnswer(answer,id) {
         setMaswali(prevMaswali => (
             prevMaswali.map(swali => {
                 return swali.id === id ? {...swali,selected:answer,checked:true} : swali
             })
         ))
-        console.log(maswali)
     }
     
 
