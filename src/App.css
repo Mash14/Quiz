@@ -1,42 +1,83 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+/* Questions Page  */
+.return {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+.difficulty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.difficulty-buttons {
+    margin: 20px;
+    /* padding: 10px 30px; */
+    border-radius: 15px;
+    background: #4D5B9E;
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 193px;
+    height: 52px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.difficulty-buttons:hover {
+    transform: scale(1.05);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.questions {
+    padding: 20px 40px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.question-ind {
+    padding: 20px 0;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.question-text {
+    font-size: 18px;
+    font-weight: 500;
+}
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.answer {
+    /* flex: 20%; */
+    /* max-width: 20%; */
+    margin-right: 15px;
+    text-align: center;
+}
+.answer-text {
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: blue;
+    cursor: pointer;
+    /* background: rgb(75, 74, 74); */
+    transition: all 0.4s;
+}
+.answer-text:hover {
+    border: 1px solid rgb(146, 146, 142);
+    transform: scale(1.07);
+    box-shadow: 0 1px 1px rgb(146, 146, 142);
+}
+.submit {
+    margin: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media screen and (max-width:560px) {
+    h1 {
+        font-size : 30px;
+    }
 }
