@@ -6,7 +6,7 @@ function Animation() {
     const [questionType,modifyQuestionType] = useState()
     const [questions,setQuestions] = useState([])
     const [maswali,setMaswali] = useState([])
-    const [answers,setAnswers] = useState({})
+    const [answers,setAnswers] = useState({'0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':''})
 
     useEffect(()=>{
         console.log('now')
@@ -29,7 +29,7 @@ function Animation() {
     useEffect(()=> {
         
         let x = []
-        for(let i =0;i<questions.length;i++) {
+        for(let i =0; i<questions.length; i++) {
             console.log('happy')
                 
             let p = []
@@ -67,7 +67,13 @@ function Animation() {
         changeMode('home')
         setQuestions([])
     }
-    
+    function sendAnswer(answer,index) {
+        let x = {}
+        x.index = answer  
+        setAnswers(prev => {
+            return {...prev,index:answer}
+        })
+    }
 
     function submitAnswers() {
 
