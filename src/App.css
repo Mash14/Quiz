@@ -62,12 +62,16 @@ h1 {
     color: blue;
     cursor: pointer;
     /* background: rgb(75, 74, 74); */
-    transition: all 0.4s;
+    box-shadow: none;
+    transform: none;
+    transition: transform 0.3s, box-shadow 0.4s;
+    
 }
 .answer-text:hover {
     border: 1px solid rgb(146, 146, 142);
     transform: scale(1.07);
     box-shadow: 0 1px 1px rgb(146, 146, 142);
+    
 }
 .submit {
     margin: auto;

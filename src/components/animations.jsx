@@ -1,4 +1,6 @@
 import React,{useState,useEffect} from 'react';
+import { nanoid } from 'nanoid';
+import Question from './question';
 
 function Animation() {
     
@@ -27,23 +29,16 @@ function Animation() {
     },[questionType])
 
     useEffect(()=> {
-        
-        let x = []
-        for(let i =0; i<questions.length; i++) {
-            console.log('happy')
-                
-            let p = []
-            questions[i].incorrect_answers.map(answer => {
-                return p.push(answer)
-            })
-            p.push(questions[i].correct_answer)
-            let shuffledArray = shuffleArray(p)
-            questions[i].answers = shuffledArray
-            console.log(questions[i].answers)
-            x.push(questions[i])
-        }
-        setMaswali(x)
-        console.log(x)
+        let setQuestion = []
+        questions.forEach(question => {
+            setQuestion.push({id:nanoid(),
+                answers:shuffleArray([...question.incorrect_answers,question.correct_answer]),
+                question:question.question,
+                correct_answer:question.correct_answer,
+                selected:null,
+                checked:false})
+        })
+        setMaswali(setQuestion)
             
     },[questions])
 
@@ -67,12 +62,13 @@ function Animation() {
         changeMode('home')
         setQuestions([])
     }
-    function sendAnswer(answer,index) {
-        let x = {}
-        x.index = answer  
-        setAnswers(prev => {
-            return {...prev,index:answer}
-        })
+    function sendAnswer(answer) {
+        console.log(answer)
+        // let x = {}
+        // x.index = answer  
+        // setAnswers(prev => {
+        //     return {...prev,index:answer}
+        // })
     }
 
     function submitAnswers() {
@@ -94,22 +90,12 @@ function Animation() {
             {mode === 'questions' && 
                 <div className='questions'>
                     {maswali.map((question,index) => {
-                        return <div key={index} className='question-ind' >
-                                <p className='question-text' >{question.question}</p>
-                                <div className="answers">
-                                    <div className="answer">
-                                        <div className='answer-text' onClick={()=>sendAnswer(question.answer[0],index)}>{question.answers[0]}</div>
-                                    </div>
-                                    <div className="answer">
-                                        <div className='answer-text' onClick={()=>sendAnswer(question.answer[1],index)}>{question.answers[1]}</div>
-                                    </div>
-                                    <div className="answer">
-                                        <div className='answer-text' onClick={()=>sendAnswer(question.answer[2],index)}>{question.answers[2]}</div>
-                                    </div>
-                                    <div className="answer">
-                                        <div className='answer-text' onClick={()=>sendAnswer(question.answer[3],index)}>{question.answers[3]}</div>
-                                    </div>
-                                </div>
+                        return <div key={question.id} className='question-ind' >
+                                <Question 
+                                    question={question}
+
+                                />
+                              
                                 
                                 
                             </div>
