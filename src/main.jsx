@@ -21,6 +21,7 @@ import Geography from './components/geography'
 import History from './components/history';
 import Politics from './components/politics'
 import Animalz from './components/animals'
+import Vehicles from './components/vehicles'
 
 export default function Main() {
   return (
@@ -44,6 +45,7 @@ export default function Main() {
         <Route path='/history' element={<History />} />
         <Route path='/politics' element={<Politics />} />
         <Route path='/animals' element={<Animalz />} />
+        <Route path='/vehicles' element={<Vehicles />} />
       </Routes>
     </BrowserRouter>
   )
