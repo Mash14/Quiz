@@ -42,6 +42,7 @@ function Home() {
             <Link to="/science/computers">Science : Computers</Link>
             <Link to="/science/mathematics">Science : Mathematics</Link>
             <Link to="/mythology">Mythology</Link>
+            <Link to="/sports">Sports</Link>
         </div>
     );
 }
