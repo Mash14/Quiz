@@ -34,6 +34,8 @@ function Home() {
             <Link to="/general">General Knowledge</Link>
             <Link to="/entertainment/books">Entertainment : Books</Link>
             <Link to="/entertainment/film">Entertainment : Film</Link>
+            <Link to="/entertainment/music">Entertainment : Music</Link>
+            <Link to="/entertainment/tv">Entertainment : Tv</Link>
         </div>
     );
 }
