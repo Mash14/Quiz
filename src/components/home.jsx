@@ -31,6 +31,7 @@ function Home() {
             <Navbar dark={setDark} darkMode={darkMode}/>
             <h1>Welcome</h1>
             <Link to="/animations">Cartoons & Animations</Link>
+            <Link to="/general">General Knowledge</Link>
         </div>
     );
 }
