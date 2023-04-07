@@ -32,6 +32,8 @@ function Home() {
             <h1>Welcome</h1>
             <Link to="/animations">Cartoons & Animations</Link>
             <Link to="/general">General Knowledge</Link>
+            <Link to="/entertainment/books">Entertainment : Books</Link>
+            <Link to="/entertainment/film">Entertainment : Film</Link>
         </div>
     );
 }

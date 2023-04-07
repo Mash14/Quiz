@@ -6,6 +6,9 @@ import './App.css'
 import Home from './components/home'
 import Animation from './components/animations'
 import GeneralQ from './components/general'
+import Books from './components/books'
+import Filmz from './components/film'
+import Musicy from './components/music'
 
 export default function Main() {
   return (
@@ -14,6 +17,9 @@ export default function Main() {
         <Route path='/' element={<Home />} />
         <Route path='/animations' element={<Animation />} />
         <Route path='/general' element={<GeneralQ />} />
+        <Route path='/entertainment/books' element={<Books />} />
+        <Route path='/entertainment/film' element={<Filmz />} />
+        <Route path='/entertainment/music' element={<Musicy />} />
       </Routes>
     </BrowserRouter>
   )
