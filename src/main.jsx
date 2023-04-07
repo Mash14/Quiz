@@ -11,6 +11,7 @@ import Filmz from './components/film'
 import Musicy from './components/music'
 import Tv from './components/tv'
 import VideoG from './components/videoGames'
+import BoardG from './components/boardGames'
 
 export default function Main() {
   return (
@@ -24,6 +25,7 @@ export default function Main() {
         <Route path='/entertainment/music' element={<Musicy />} />
         <Route path='/entertainment/tv' element={<Tv />} />
         <Route path='/entertainment/video-games' element={<VideoG />} />
+        <Route path='/entertainment/board-games' element={<BoardG />} />
       </Routes>
     </BrowserRouter>
   )

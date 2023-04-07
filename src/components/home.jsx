@@ -37,6 +37,7 @@ function Home() {
             <Link to="/entertainment/music">Entertainment : Music</Link>
             <Link to="/entertainment/tv">Entertainment : Tv</Link>
             <Link to="/entertainment/video-games">Entertainment : Video Games</Link>
+            <Link to="/entertainment/board-games">Entertainment : Board Games</Link>
         </div>
     );
 }

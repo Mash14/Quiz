@@ -38,15 +38,15 @@ function VideoG() {
     // Bring data from api
     useEffect(()=>{
         if(questionType === 'easy') {
-            fetch('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'medium') {
-            fetch('https://opentdb.com/api.php?amount=10&category=11&difficulty=medium&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'hard') {
-            fetch('https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=15&difficulty=hard&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         }      
