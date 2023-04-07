@@ -13,6 +13,7 @@ import Tv from './components/tv'
 import VideoG from './components/videoGames'
 import BoardG from './components/boardGames'
 import Nature from './components/nature'
+import Computerz from './components/computers'
 
 export default function Main() {
   return (
@@ -28,6 +29,7 @@ export default function Main() {
         <Route path='/entertainment/video-games' element={<VideoG />} />
         <Route path='/entertainment/board-games' element={<BoardG />} />
         <Route path='/science/nature' element={<Nature />} />
+        <Route path='/science/computers' element={<Computerz />} />
       </Routes>
     </BrowserRouter>
   )
