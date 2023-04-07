@@ -40,6 +40,7 @@ function Home() {
             <Link to="/entertainment/board-games">Entertainment : Board Games</Link>
             <Link to="/science/nature">Science : Nature</Link>
             <Link to="/science/computers">Science : Computers</Link>
+            <Link to="/science/mathematics">Science : Mathematics</Link>
         </div>
     );
 }
