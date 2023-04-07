@@ -37,8 +37,7 @@ function Animation() {
                 answers:shuffleArray([...question.incorrect_answers,question.correct_answer]),
                 question:question.question,
                 correct_answer:question.correct_answer,
-                selected:null,
-                checked:false})
+                selected:null})
         })
         setMaswali(setQuestion)
             
@@ -63,12 +62,17 @@ function Animation() {
     function returnHome() {
         changeMode('home')
         setQuestions([])
+        completeTest(false)
+        setScore(0)
+        completeTest(false)
+        modifyQuestionType('')
+        setMaswali([])
     }
     // Get answers from child component
     function sendAnswer(answer,id) {
         setMaswali(prevMaswali => (
             prevMaswali.map(swali => {
-                return swali.id === id ? {...swali,selected:answer,checked:true} : swali
+                return swali.id === id ? {...swali,selected:answer} : swali
             })
         ))
     }
@@ -81,12 +85,8 @@ function Animation() {
             return ;
         }
         for (let i =0; i < maswali.length;i++) {
-            if(maswali[i].correct_answer = maswali[i].selected) {
-                setMaswali(prevAns => (
-                    prevAns.map(jibu => {
-                        jibu.id === maswali[i].id ? {...jibu,checked : true} : jibu
-                    })
-                ))
+            let currentQuestion = maswali[i]
+            if(currentQuestion.correct_answer === currentQuestion.selected) {
                 setScore(prev => prev + 1)
             } 
         }
@@ -96,7 +96,7 @@ function Animation() {
     return ( 
         <React.Fragment>
             <h1>Cartoons & Animations Quiz</h1>
-            <button onClick={returnHome} className='return'>Back</button>
+            
             {mode === 'home' && 
                 <div className='difficulty'>
                     <button onClick={easyQuestions} className='difficulty-buttons'>Easy</button>
@@ -106,25 +106,30 @@ function Animation() {
             }
             {mode === 'questions' && 
                 <div className='questions'>
-                    {maswali.map((question,index) => {
+                    <button onClick={returnHome} title='Back' className='return'><i class="fa-solid fa-arrow-left"></i></button>
+                    {maswali.map((question) => {
                         return <div key={question.id} className='question-ind' >
                                 <Question 
                                     question={question}
                                     choosenAnswer={sendAnswer}
-                                    finished={completeTest}
+                                    finished={finish}
                                 />
-                              
-                                
-                                
+             
                             </div>
                     })}
-                    <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                    {score ? 
+                        <div className='ending'>
+                            <p className={score > 6 ? 'pass' : 'fail'}>FInal Score {score}/10</p>
+                            <button onClick={returnHome} className='difficulty-buttons submit'>Play Again</button>
+                        </div>
+                        :
+                        <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                    }
                 </div>
                 // || 
                 //  <div className='load'>Loading...</div>)
             }
-            {mode === 'answers' && (<div className="answers">Answer</div> || <div>Happy</div>)
-            }
+           
 
         </React.Fragment>
     );

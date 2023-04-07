@@ -7,7 +7,13 @@ h1 {
 .return {
     position: fixed;
     top: 50px;
-    left: 50px;
+    right: 50px;
+    padding: 0 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    background: #4D5B9E;
+    cursor: pointer;
 }
 .difficulty {
     display: flex;
@@ -28,9 +34,12 @@ h1 {
     height: 52px;
     font-weight: 500;
     cursor: pointer;
+    transition: transform 0.4s;
+    
 }
 .difficulty-buttons:hover {
     transform: scale(1.05);
+   
 }
 
 .questions {
@@ -60,14 +69,16 @@ h1 {
     padding: 5px 15px;
     border-radius: 15px;
     color: blue;
-    cursor: pointer;
     /* background: rgb(75, 74, 74); */
     box-shadow: none;
     transform: none;
     transition: transform 0.3s, box-shadow 0.4s;
     
 }
-.answer-text:hover {
+.answer-text-before {
+    cursor: pointer;
+}
+.answer-text-before:hover {
     border: 1px solid rgb(146, 146, 142);
     transform: scale(1.07);
     box-shadow: 0 1px 1px rgb(146, 146, 142);
@@ -78,11 +89,42 @@ h1 {
     border: none;
     /* background-color: red; */
 }
+.wrong-answer {
+    background:#F8BCBC;
+    /* background: rgb(199, 2, 2); */
+    border: none;
+}
+.wrong-answers {
+    opacity: 0.5;
+}
+.wrong-answers-2 {
+    border: 1px solid rgba(0, 0, 0,0.5);
+}
+.right-answer {
+    background: #94D7A2;
+    /* background: rgb(7, 241, 7); */
+    border: none;
+}
 .submit {
     margin: auto;
     display: block;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.ending {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ending p {
+    margin-right: 15px;
+    font-size: 27px;
+}
+.pass {
+    color:green;
+}
+.fail {
+    color: red;
 }
 
 @media screen and (max-width:560px) {
