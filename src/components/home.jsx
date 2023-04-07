@@ -4,7 +4,7 @@ import Navbar from './navbar';
 
 function Home() {
     const [modez,setMode] = useState(()=>localStorage.darkMode || null)
-    
+
     // Dark Mode
     let dark
     if (modez === 'true') {
@@ -45,6 +45,9 @@ function Home() {
             <Link to="/sports">Sports</Link>
             <Link to="/geography">Geography</Link>
             <Link to="/history">History</Link>
+            <Link to="/politics">Politics</Link>
+
+            
         </div>
     );
 }
