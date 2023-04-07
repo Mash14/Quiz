@@ -46,6 +46,7 @@ function Home() {
             <Link to="/geography">Geography</Link>
             <Link to="/history">History</Link>
             <Link to="/politics">Politics</Link>
+            <Link to='/entertainment/anime'>Entertainment : Japanese Anime & Manga</Link>
 
             
         </div>
