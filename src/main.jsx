@@ -17,6 +17,7 @@ import Computerz from './components/computers'
 import Mathz from './components/math'
 import Mythology from './components/mythology'
 import Sports from './components/sports'
+import Geography from './components/geography'
 
 export default function Main() {
   return (
@@ -36,6 +37,7 @@ export default function Main() {
         <Route path='/science/mathematics' element={<Mathz />} />
         <Route path='/mythology' element={<Mythology />} />
         <Route path='/sports' element={<Sports />} />
+        <Route path='/geography' element={<Geography />} />
       </Routes>
     </BrowserRouter>
   )
