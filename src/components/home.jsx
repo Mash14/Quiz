@@ -44,6 +44,7 @@ function Home() {
             <Link to="/mythology">Mythology</Link>
             <Link to="/sports">Sports</Link>
             <Link to="/geography">Geography</Link>
+            <Link to="/history">History</Link>
         </div>
     );
 }

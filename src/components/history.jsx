@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import Question from './question';
 import Navbar from './navbar';
 
-function Geography() {
+function History() {
     
     const [mode,changeMode] = useState('home')
     const [questionType,modifyQuestionType] = useState()
@@ -38,15 +38,15 @@ function Geography() {
     // Bring data from api
     useEffect(()=>{
         if(questionType === 'easy') {
-            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=23&difficulty=easy&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'medium') {
-            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'hard') {
-            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=hard&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=23&difficulty=hard&type=multiple')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         }      
@@ -122,7 +122,7 @@ function Geography() {
             <div className={darkMode ? 'body dark' : "body"}>
                 <Navbar dark={setDark} darkMode={darkMode}/>
 
-                <h1>Geography</h1>
+                <h1>History</h1>
                 
                 {mode === 'home' && 
                     <div className='difficulty'>
@@ -160,7 +160,7 @@ function Geography() {
     );
 }
 
-export default Geography;
+export default History;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
