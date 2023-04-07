@@ -14,6 +14,7 @@ nav h2 {
 }
 nav button {
     margin-right: 15px;
+    margin-left: auto;
     border: none;
     background: none;
     color: white;

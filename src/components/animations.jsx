@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { nanoid } from 'nanoid';
 import Question from './question';
+import Navbar from './navbar';
 
 function Animation() {
     
@@ -10,6 +11,29 @@ function Animation() {
     const [maswali,setMaswali] = useState([])
     const [score,setScore] = useState(0)
     const [finish,completeTest] = useState(false)
+    const [modez,setMode] = useState(()=>localStorage.darkMode || null)
+    
+    // Dark Mode
+    let dark
+    if (modez === 'true') {
+        dark = true
+    } else{
+        dark = false
+    }
+    const [darkMode,setDarkMode] = useState(dark || false)
+
+    function setDark() {
+        setDarkMode(prev => !prev)
+    } 
+    useEffect(()=>{
+        
+        if (darkMode) {
+            localStorage.setItem('darkMode','true')
+        } else {
+            localStorage.setItem('darkMode','false')
+        }
+        
+    },[darkMode])
 
     // Bring data from api
     useEffect(()=>{
@@ -95,41 +119,42 @@ function Animation() {
     
     return ( 
         <React.Fragment>
-            <h1>Cartoons & Animations Quiz</h1>
-            
-            {mode === 'home' && 
-                <div className='difficulty'>
-                    <button onClick={easyQuestions} className='difficulty-buttons'>Easy</button>
-                    <button onClick={mediumQuestions} className='difficulty-buttons'>Medium</button>
-                    <button onClick={hardQuestions} className='difficulty-buttons'>Difficult</button>
-                </div>
-            }
-            {mode === 'questions' && 
-                <div className='questions'>
-                    <button onClick={returnHome} title='Back' className='return'><i class="fa-solid fa-arrow-left"></i></button>
-                    {maswali.map((question) => {
-                        return <div key={question.id} className='question-ind' >
-                                <Question 
-                                    question={question}
-                                    choosenAnswer={sendAnswer}
-                                    finished={finish}
-                                />
-             
+            <div className={darkMode ? 'body dark' : "body"}>
+                <Navbar dark={setDark} darkMode={darkMode}/>
+
+                <h1>Cartoons & Animations Quiz</h1>
+                
+                {mode === 'home' && 
+                    <div className='difficulty'>
+                        <button onClick={easyQuestions} className='difficulty-buttons'>Easy</button>
+                        <button onClick={mediumQuestions} className='difficulty-buttons'>Medium</button>
+                        <button onClick={hardQuestions} className='difficulty-buttons'>Difficult</button>
+                    </div>
+                }
+                {mode === 'questions' && 
+                    <div className='questions'>
+                        <button onClick={returnHome} title='Back' className='return'><i className="fa-solid fa-arrow-left"></i></button>
+                        {maswali.map((question) => {
+                            return <div key={question.id} className='question-ind' >
+                                    <Question 
+                                        question={question}
+                                        choosenAnswer={sendAnswer}
+                                        finished={finish}
+                                    />
+                
+                                </div>
+                        })}
+                        {score ? 
+                            <div className='ending'>
+                                <p className={score > 6 ? 'pass' : 'fail'}>FInal Score {score}/10</p>
+                                <button onClick={returnHome} className='difficulty-buttons submit'>Play Again</button>
                             </div>
-                    })}
-                    {score ? 
-                        <div className='ending'>
-                            <p className={score > 6 ? 'pass' : 'fail'}>FInal Score {score}/10</p>
-                            <button onClick={returnHome} className='difficulty-buttons submit'>Play Again</button>
-                        </div>
-                        :
-                        <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
-                    }
-                </div>
-                // || 
-                //  <div className='load'>Loading...</div>)
-            }
-           
+                            :
+                            <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                        }
+                    </div>
+                }
+            </div>
 
         </React.Fragment>
     );
