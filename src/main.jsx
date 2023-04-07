@@ -10,6 +10,7 @@ import Books from './components/books'
 import Filmz from './components/film'
 import Musicy from './components/music'
 import Tv from './components/tv'
+import VideoG from './components/videoGames'
 
 export default function Main() {
   return (
@@ -22,6 +23,7 @@ export default function Main() {
         <Route path='/entertainment/film' element={<Filmz />} />
         <Route path='/entertainment/music' element={<Musicy />} />
         <Route path='/entertainment/tv' element={<Tv />} />
+        <Route path='/entertainment/video-games' element={<VideoG />} />
       </Routes>
     </BrowserRouter>
   )
