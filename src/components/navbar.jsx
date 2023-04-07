@@ -4,9 +4,10 @@ function Navbar(props) {
 
     
     return ( 
-        <>
-            <button onClick={props.dark}>{props.darkMode ? <i className="fa-solid fa-sun"></i> : <i className="fa-sharp fa-solid fa-moon"></i>}</button>   
-        </>
+        <nav>
+            <h2>Quiz</h2>
+            <button onClick={props.dark}>{props.darkMode ? <i className="fa-solid fa-sun" title='light-mode'></i> : <i className="fa-sharp fa-solid fa-moon" title='dark-mode'></i>}</button>   
+        </nav>
      );
 }
 
