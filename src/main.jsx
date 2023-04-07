@@ -15,6 +15,7 @@ import BoardG from './components/boardGames'
 import Nature from './components/nature'
 import Computerz from './components/computers'
 import Mathz from './components/math'
+import Mythology from './components/mythology'
 
 export default function Main() {
   return (
@@ -32,6 +33,7 @@ export default function Main() {
         <Route path='/science/nature' element={<Nature />} />
         <Route path='/science/computers' element={<Computerz />} />
         <Route path='/science/mathematics' element={<Mathz />} />
+        <Route path='/mythology' element={<Mythology />} />
       </Routes>
     </BrowserRouter>
   )
