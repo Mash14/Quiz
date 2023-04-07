@@ -18,7 +18,8 @@ import Mathz from './components/math'
 import Mythology from './components/mythology'
 import Sports from './components/sports'
 import Geography from './components/geography'
-import History from './components/history'
+import History from './components/history';
+import Politics from './components/politics'
 
 export default function Main() {
   return (
@@ -40,6 +41,7 @@ export default function Main() {
         <Route path='/sports' element={<Sports />} />
         <Route path='/geography' element={<Geography />} />
         <Route path='/history' element={<History />} />
+        <Route path='/politics' element={<Politics />} />
       </Routes>
     </BrowserRouter>
   )
