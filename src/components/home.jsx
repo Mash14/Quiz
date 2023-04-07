@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Outlet, Link} from 'react-router-dom';
 import Navbar from './navbar';
+import Footer from './footer';
 
 function Home() {
     const [modez,setMode] = useState(()=>localStorage.darkMode || null)
@@ -29,26 +30,28 @@ function Home() {
     return ( 
         <div className={darkMode ? 'body dark' : "body"}>
             <Navbar dark={setDark} darkMode={darkMode}/>
-            <h1>Welcome</h1>
-            <Link to="/animations">Cartoons & Animations</Link>
-            <Link to="/general">General Knowledge</Link>
-            <Link to="/entertainment/books">Entertainment : Books</Link>
-            <Link to="/entertainment/film">Entertainment : Film</Link>
-            <Link to="/entertainment/music">Entertainment : Music</Link>
-            <Link to="/entertainment/tv">Entertainment : Tv</Link>
-            <Link to="/entertainment/video-games">Entertainment : Video Games</Link>
-            <Link to="/entertainment/board-games">Entertainment : Board Games</Link>
-            <Link to="/science/nature">Science : Nature</Link>
-            <Link to="/science/computers">Science : Computers</Link>
-            <Link to="/science/mathematics">Science : Mathematics</Link>
-            <Link to="/mythology">Mythology</Link>
-            <Link to="/sports">Sports</Link>
-            <Link to="/geography">Geography</Link>
-            <Link to="/history">History</Link>
-            <Link to="/politics">Politics</Link>
-            <Link to='/entertainment/anime'>Entertainment : Japanese Anime & Manga</Link>
+            <h1>Quizes</h1>
+            <div className="links">
+                <Link to="/animations" className='quiz'>Cartoons & Animations</Link>
+                <Link to="/entertainment/board-games" className='quiz'>Entertainment : Board Games</Link>
+                <Link to="/entertainment/books" className='quiz'>Entertainment : Books</Link>
+                <Link to="/entertainment/film" className='quiz'>Entertainment : Film</Link>
+                <Link to='/entertainment/anime' className='quiz'>Entertainment : Japanese Anime & Manga</Link>
+                <Link to="/entertainment/music" className='quiz'>Entertainment : Music</Link>
+                <Link to="/entertainment/tv" className='quiz'>Entertainment : Tv</Link>
+                <Link to="/entertainment/video-games" className='quiz'>Entertainment : Video Games</Link>
+                <Link to="/general" className='quiz'>General Knowledge</Link>
+                <Link to="/geography" className='quiz'>Geography</Link>
+                <Link to="/history" className='quiz'>History</Link>
+                <Link to="/mythology" className='quiz'>Mythology</Link>
+                <Link to="/science/computers" className='quiz'>Science : Computers</Link>
+                <Link to="/science/mathematics" className='quiz'>Science : Mathematics</Link>
+                <Link to="/science/nature" className='quiz'>Science : Nature</Link>
+                <Link to="/sports" className='quiz'>Sports</Link>
+                <Link to="/politics" className='quiz'>Politics</Link>
 
-            
+            </div>
+            <Footer />
         </div>
     );
 }

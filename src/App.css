@@ -21,6 +21,26 @@ nav button {
     font-size: 20px;
     cursor: pointer;
 }
+/* Home page  */
+.links {
+    margin: 40px;
+}
+.quiz {
+    background: #4D5B9E;
+    border-radius: 15px;
+    padding: 7px 20px;
+    margin: 7px;
+    float: left;
+    color: black;
+    transition: transform 0.4s;
+}
+
+.quiz:hover {
+    transform: scale(1.05);
+    background: #374899;
+    box-shadow: 0 1px  2px #4D5B9E;
+}
+
 h1 {
     text-align: center;
     font-size: 2.4rem;
@@ -150,11 +170,47 @@ h1 {
     color: red;
 }
 
+/* footer */
+.footer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+}
+.footer-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background: rgb(3, 0, 10);
+    border-bottom: 1px solid white;
+}
+.footer-1 h4 {
+    margin-left: 20px;
+}
+.footer-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: black;
+}
+
+@media screen and (max-width:775px) {
+    .footer {
+        display: none;
+    }
+}
+
 @media screen and (max-width:560px) {
     h1 {
         font-size : 30px;
     }
     .questions {
         padding: 20px 20px;
+    }
+    .links {
+        margin: 20px;
     }
 }

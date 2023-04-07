@@ -23,6 +23,7 @@ import Politics from './components/politics'
 import Animalz from './components/animals'
 import Vehicles from './components/vehicles'
 import Comics from './components/comics'
+import Anime from './components/anime'
 
 export default function Main() {
   return (
@@ -38,6 +39,7 @@ export default function Main() {
         <Route path='/entertainment/video-games' element={<VideoG />} />
         <Route path='/entertainment/board-games' element={<BoardG />} />
         <Route path='/entertainment/comics' element={<Comics />} />
+        <Route path='/entertainment/anime' element={<Anime />} />
         <Route path='/science/nature' element={<Nature />} />
         <Route path='/science/computers' element={<Computerz />} />
         <Route path='/science/mathematics' element={<Mathz />} />
