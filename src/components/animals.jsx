@@ -97,6 +97,7 @@ function Animalz() {
             setLoading(false)
         },1500)  
     }
+    
     function returnHome() {
         changeMode('home')
         setQuestions([])

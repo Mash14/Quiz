@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { nanoid } from 'nanoid';
 import Question from './question';
 import Navbar from './navbar';
+import Loader from './loader';
 
 function Geography() {
     
@@ -12,7 +13,8 @@ function Geography() {
     const [score,setScore] = useState(0)
     const [finish,completeTest] = useState(false)
     const [modez,setMode] = useState(()=>localStorage.darkMode || null)
-    
+    const [isLoading,setLoading] = useState(false)
+
     // Dark Mode
     let dark
     if (modez === 'true') {
@@ -38,7 +40,7 @@ function Geography() {
     // Bring data from api
     useEffect(()=>{
         if(questionType === 'easy') {
-            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=easy')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'medium') {
@@ -46,7 +48,7 @@ function Geography() {
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'hard') {
-            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=hard&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=hard')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         }      
@@ -70,19 +72,32 @@ function Geography() {
     
     // Get easy questions
     function easyQuestions() {
-        changeMode('questions')
+        setLoading(true)
         modifyQuestionType('easy')
+        setTimeout(()=> {
+            changeMode('questions')
+            setLoading(false)
+        },1500)   
     }
     // Get medium questions
     function mediumQuestions() {
-        changeMode('questions')
+        setLoading(true)
         modifyQuestionType('medium')
+        setTimeout(()=> {
+            changeMode('questions')
+            setLoading(false)
+        },1500)  
     }
     // Get hard questions
     function hardQuestions() {
-        changeMode('questions')
+        setLoading(true)
         modifyQuestionType('hard')
+        setTimeout(()=> {
+            changeMode('questions')
+            setLoading(false)
+        },1500)  
     }
+
     function returnHome() {
         changeMode('home')
         setQuestions([])
@@ -121,36 +136,41 @@ function Geography() {
         <React.Fragment>
             <div className={darkMode ? 'body dark' : "body"}>
                 <Navbar dark={setDark} darkMode={darkMode}/>
-
-                <h1>Geography</h1>
-                
-                {mode === 'home' && 
-                    <div className='difficulty'>
-                        <button onClick={easyQuestions} className='difficulty-buttons'>Easy</button>
-                        <button onClick={mediumQuestions} className='difficulty-buttons'>Medium</button>
-                        <button onClick={hardQuestions} className='difficulty-buttons'>Difficult</button>
-                    </div>
-                }
-                {mode === 'questions' && 
-                    <div className='questions'>
-                        <button onClick={returnHome} title='Back' className='return'><i className="fa-solid fa-arrow-left"></i></button>
-                        {maswali.map((question) => {
-                            return <div key={question.id} className='question-ind' >
-                                    <Question 
-                                        question={question}
-                                        choosenAnswer={sendAnswer}
-                                        finished={finish}
-                                    />
-                
-                                </div>
-                        })}
-                        {score ? 
-                            <div className='ending'>
-                                <p className={score > 6 ? 'pass' : 'fail'}>FInal Score {score}/10</p>
-                                <button onClick={returnHome} className='difficulty-buttons submit'>Play Again</button>
+                {isLoading ? 
+                    <Loader />
+                    :
+                    <div className="not">
+                        <h1>Geography</h1>
+                        
+                        {mode === 'home' && 
+                            <div className='difficulty'>
+                                <button onClick={easyQuestions} className='difficulty-buttons'>Easy</button>
+                                <button onClick={mediumQuestions} className='difficulty-buttons'>Medium</button>
+                                <button onClick={hardQuestions} className='difficulty-buttons'>Difficult</button>
                             </div>
-                            :
-                            <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                        }
+                        {mode === 'questions' && 
+                            <div className='questions'>
+                                <button onClick={returnHome} title='Back' className='return'><i className="fa-solid fa-arrow-left"></i></button>
+                                {maswali.map((question) => {
+                                    return <div key={question.id} className='question-ind' >
+                                            <Question 
+                                                question={question}
+                                                choosenAnswer={sendAnswer}
+                                                finished={finish}
+                                            />
+                        
+                                        </div>
+                                })}
+                                {score ? 
+                                    <div className='ending'>
+                                        <p className={score > 6 ? 'pass' : 'fail'}>FInal Score {score}/10</p>
+                                        <button onClick={returnHome} className='difficulty-buttons submit'>Play Again</button>
+                                    </div>
+                                    :
+                                    <button onClick={markAnswers} className='difficulty-buttons submit'>Check Answers</button>
+                                }
+                            </div>
                         }
                     </div>
                 }
