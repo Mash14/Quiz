@@ -172,11 +172,10 @@ h1 {
 
 /* footer */
 .footer {
-    position: fixed;
     display: flex;
     flex-direction: column;
-    bottom: 0;
     width: 100%;
+    color: white;
 }
 .footer-1 {
     display: flex;
@@ -184,23 +183,22 @@ h1 {
     justify-content: center;
     height: 40px;
     background: rgb(3, 0, 10);
-    border-bottom: 1px solid white;
 }
 .footer-1 h4 {
     margin-left: 20px;
 }
+.hr-footer {
+    width: 380px;
+    border: none;
+    border-top: 2px solid white;
+    margin: auto;
+} 
 .footer-2 {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     background-color: black;
-}
-
-@media screen and (max-width:775px) {
-    .footer {
-        display: none;
-    }
 }
 
 @media screen and (max-width:560px) {
@@ -212,5 +210,11 @@ h1 {
     }
     .links {
         margin: 20px;
+    }
+}
+
+@media screen and (max-width:395px) {
+    .hr-footer {
+        display: none;
     }
 }

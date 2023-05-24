@@ -42,7 +42,6 @@ function Question(props) {
         } else {
             classes += 'answer-text wrong-answers wrong-answers-2'
         }
-        // return classes += answer === props.question.correct_answer? 'answer-text wrong-answer' : 'answer-text';
         return classes ;
     }
     

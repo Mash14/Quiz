@@ -38,7 +38,7 @@ function Animalz() {
     // Bring data from api
     useEffect(()=>{
         if(questionType === 'easy') {
-            fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple')
+            fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy')
                 .then(response => response.json())
                 .then(res => setQuestions(res.results))
         } else if (questionType === 'medium') {
