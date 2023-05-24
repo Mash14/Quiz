@@ -9,6 +9,7 @@
   color: #293264;
   min-height: 100vh;
   height: 100%;
+  position: relative;
 }
 .dark {
   background: #05060e;
