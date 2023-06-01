@@ -7,12 +7,12 @@ Quiz App is a web application built with React that allows users to take quizzes
 - Choose questions from a variety of quiz topics.
 - Select the difficulty level (easy, medium or hard) for the quiz.
 - Answer multiple-choice questions within a time limit.
-- Submit the quiz and receive instant feedack on the results.
-- Responsive design for a seamless exerience on different devices.
+- Submit the quiz and receive instant feedback on the results.
+- Responsive design for a seamless experience on different devices.
 
 ## Installation
 
-1. Clone the respository:
+1. Clone the repository:
    ```
    git clone https://github.com/Mash14/Quiz.git
    ```
@@ -37,6 +37,12 @@ Quiz App is a web application built with React that allows users to take quizzes
 3. Answer the multiple-choice questions
 4. Submit your answers to see the results instantly.
 5. View your score and see which questions you answered correctly or incorrectly.
+
+## ScreenShot
+
+![Quiz Before Answering](/src/assets/Screenshot%20from%202023-06-01%2011-46-04.png)
+
+![Quiz After Answering](/src/assets/Screenshot%20from%202023-06-01%2011-47-50.png)
 
 ## Technologies Used
 
@@ -66,6 +72,6 @@ There are no known bugs
 
 ## License and Copyright information
 
-The license information can be found here: [MIT-Lisence](https://opensource.org/licenses/MIT)
+The license information can be found here: [MIT-License](https://opensource.org/licenses/MIT)
 
 Copyright (c)_24/05/2023\_\_Alan Macharia_
